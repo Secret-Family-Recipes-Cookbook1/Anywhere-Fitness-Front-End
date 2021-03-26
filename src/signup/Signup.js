@@ -11,6 +11,7 @@ export default function Signup(props){
         lastname: '',
         email: '',
         password: '',
+        pickside: '',
         terms: false,
     })
 
@@ -36,9 +37,9 @@ export default function Signup(props){
 
         <div className="main-container-signup">
 
-            <h1>Lambda Eats</h1>
+            {/* <h1>Lambda Eats</h1> */}
 
-            <img src="https://images.pexels.com/photos/4473612/pexels-photo-4473612.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></img>
+            {/* <img src="https://images.pexels.com/photos/4473612/pexels-photo-4473612.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></img> */}
 
             <div className="signup-container">
 
@@ -165,6 +166,26 @@ export default function Signup(props){
                                 value={signupFormState.terms}
                             />
 
+
+                        </FormGroup>
+
+
+
+                                    {/* DROP DOWN */}
+                        <FormGroup>
+
+                            <Input 
+                            type="select"
+                            onChange={change}
+                            value={signupFormState.pickside}
+                            className="pickside"
+                            >
+                                <option>Choose Account Type</option>
+                                <option>Instructor</option>
+                                <option>Student</option>
+
+                            </Input>
+                            
 
                         </FormGroup>
 

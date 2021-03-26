@@ -6,12 +6,13 @@ import {
 import { Link, Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from 'react-router-dom'
 import './Navigation.css'
+import Signup from '../signup/Signup'
 
 export default function navbar() {
 
     return (
         <div>
-            <Router>
+            {/* <Router> */}
                 <Navbar className="nav"> {/* Open Nav */}
 
                     <Link to="/">
@@ -22,19 +23,32 @@ export default function navbar() {
                         </NavItem>
                     </Link>
 
-                    <Route to="/signup">
+                    {/* <Route to="/signup" component={Signup}> */}
 
-                        <Switch>
-                    
-                            <NavItem className="nav-item">
+                        
 
-                                Sign Up
+                            {/* <Switch> */}
 
-                            </NavItem>
+                            <Route to="/signup">
 
-                        </Switch>
+                                <Link to="/signup">
+                        
+                                <NavItem className="nav-item">
 
-                    </Route>
+                                    Sign Up
+
+                                </NavItem>
+
+                                </Link>
+
+                            </Route>
+
+                            {/* </Switch> */}
+
+
+                        
+
+                    {/* </Route> */}
 
 
                     <Link to="signin">
@@ -46,7 +60,7 @@ export default function navbar() {
                     </Link>
 
                 </Navbar>
-            </Router>
+            {/* </Router> */}
         </div>
      )
 }
