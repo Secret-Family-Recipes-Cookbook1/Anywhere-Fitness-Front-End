@@ -1,0 +1,36 @@
+.signin-container{
+     /* background-color: rgb(97, 54, 122); */
+     width: 40vw;
+     margin-top: 40vh;
+     border: 3px solid white;
+     /* border-right: none; */
+     margin: 20vh auto ;
+     background-color: #ac070783;
+     box-shadow: 22px 12px 42px 10px rgb(90, 84, 84);
+     border-radius: 30px;
+     padding-bottom: 5vh;
+ }
+
+
+input{
+    font-size: 3rem;
+    margin-left: 10vw;
+    margin-top: 5vh;
+  }
+
+  button{
+      background-color: rgb(36, 33, 33);
+      color: white;
+      font-size: 3rem;
+      margin-left: 14.5vw;
+      margin-top: 5vh;
+      padding-left: 2vw;
+      padding-right: 2vw;
+      border-radius: 20px;
+      border: 2px solid white;
+      outline: none;
+  }
+
+  button:hover{
+      cursor: pointer;
+  }
