@@ -3,7 +3,7 @@ import {
     Navbar,
     NavItem,
 } from 'reactstrap'
-import { Link } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from 'react-router-dom'
 import './Navigation.css'
 
@@ -22,15 +22,19 @@ export default function navbar() {
                         </NavItem>
                     </Link>
 
-                    <Link to="signup">
+                    <Route to="/signup">
+
+                        <Switch>
                     
-                        <NavItem className="nav-item">
+                            <NavItem className="nav-item">
 
-                            Sign Up
+                                Sign Up
 
-                        </NavItem>
+                            </NavItem>
 
-                    </Link>
+                        </Switch>
+
+                    </Route>
 
 
                     <Link to="signin">

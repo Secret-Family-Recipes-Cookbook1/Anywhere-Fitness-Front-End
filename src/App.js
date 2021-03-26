@@ -1,12 +1,22 @@
 // import logo from './logo.svg';
 import './App.css';
 import Nav from './Navigation/Navigation'
+import Signup from './signup/Signup'
+import { Route } from "react-router-dom";
+import { BrowserRouter as Router } from 'react-router-dom'
 // import { Switch, Route } from 'react-router-dom' 
 
 function App() {
   return (
     <div className="App">
-      <Nav />
+      <Router> 
+
+        <Nav />
+
+        <Route path="/signup" component={Signup} />
+
+      </Router>
+
     </div>
   );
 }
