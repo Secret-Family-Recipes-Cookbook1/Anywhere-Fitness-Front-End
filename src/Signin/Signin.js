@@ -5,28 +5,28 @@ import { Form,  FormGroup, Label, Input, Button   } from 'reactstrap';
 
 export default function Signin(props){
     const [signupForm, setSignupForm] = useState({
-        firstname: '',
-        lastname: '',
-        email: '',
-        password: '',
-        pickside: '',
-        terms: false,
+        // firstname: '',
+        // lastname: '',
+        singinemail: '',
+        signinpassword: '',
+        // pickside: '',
+        // terms: false,
     })
 
     const [errors, setErrors] = useState({ firstname: '', lastname: '', password: '', terms: '' })
     const [disabled, setDisabled] = useState(true)
     const [formErrors, setFormErrors] = useState('')
-    const [ signupFormState, setsignupFormState] = useState([])
+    const [ signinFormState, setsigninFormState] = useState([])
     
 
     const change = event => {
         const { checked, value, name, type } = event.target
         const valueChecked = type === 'checkbox' ? checked : value
         setFormErrors(name, valueChecked)
-        setsignupFormState({ ...signupFormState, [name]: valueChecked })
+        setsigninFormState({ ...signinFormState, [name]: valueChecked })
     }
 
-    const submit = event  => {
+    const submit = event  => { 
         event.preventDefault()
         props.history.push('/')
     }
@@ -44,7 +44,7 @@ export default function Signin(props){
                 name="signin-email"
                 type="text"
                 onChange={change}
-                value={signupFormState.email}
+                value={signinFormState.singinemail}
                 // className="form-control-signup"
                 placeholder="Email"
                 maxLength="18"
@@ -52,22 +52,23 @@ export default function Signin(props){
 
             <div className='error-msg' style={{ color: 'red' }}>
 
-            <div>{errors.email}</div>
+            <div>{errors.signinemail}</div>
 
             </div>
 
             </FormGroup>  {/* USERNAME */}
 
 
-            <FormGroup>
+            <FormGroup> 
 
                             {/* <Label>First Name</Label> */}
                 <Input 
-                className="password"
-                name="password"
+                // disabled={disabled}
+                className="signin-password"
+                name="signin-password"
                 type="text"
                 onChange={change}
-                value={signupFormState.password}
+                value={signinFormState.signinpassword}
                                 // className="form-control-signup"
                 placeholder="Password"
                 maxLength="18"
@@ -75,7 +76,7 @@ export default function Signin(props){
 
                 <div className='error-msg' style={{ color: 'red' }}>
 
-                <div>{errors.password}</div>
+                <div>{errors.signinpassword}</div>
 
                 </div>
 
