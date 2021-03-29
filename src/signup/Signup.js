@@ -189,6 +189,13 @@ export default function Signup(props){
 
                         </FormGroup>
 
+
+                        <FormGroup>
+
+                            <Button className="submit" onSubmit={submit}>Submit</Button>
+
+                        </FormGroup>
+
                     </div> 
 
                 </Form>
