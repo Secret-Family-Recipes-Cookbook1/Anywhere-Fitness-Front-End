@@ -1,59 +1,74 @@
 import React, { useState, useEffect } from 'react'
 import './Signin.css'
+import * as yup from 'yup';
+import axios from "axios";
+import schema from '../validation/SignInValidation'
 import { Link, useHistory } from "react-router-dom";
 import { Form,  FormGroup, Label, Input, Button   } from 'reactstrap';
 
 export default function Signin(props){
-    const [signupForm, setSignupForm] = useState({
-        // firstname: '',
-        // lastname: '',
-        singinemail: '',
-        signinpassword: '',
-        // pickside: '',
-        // terms: false,
+
+    const [signInCredentials, setsignInCredentials] = useState({
+        signInEmail: "",
+        signInPassword: ""
     })
 
-    const [errors, setErrors] = useState({ firstname: '', lastname: '', password: '', terms: '' })
+    const history = useHistory();
+
+    const [errors, setErrors] = useState({ signInEmail: '', signInPassword: '' })
     const [disabled, setDisabled] = useState(true)
-    const [formErrors, setFormErrors] = useState('')
-    const [ signinFormState, setsigninFormState] = useState([])
+
+    const setFormErrors = (name, value) => {
+        yup.reach(schema, name).validate(value)
+        .then( () => setErrors({...errors, [name]: ''}))
+        .catch(err => setErrors({...errors, [name]: err.errors[0]}))
+    }
     
 
     const change = event => {
         const { checked, value, name, type } = event.target
         const valueChecked = type === 'checkbox' ? checked : value
         setFormErrors(name, valueChecked)
-        setsigninFormState({ ...signinFormState, [name]: valueChecked })
+        setsignInCredentials({ ...signInCredentials, [name]: valueChecked })
     }
 
     const submit = event  => { 
         event.preventDefault()
-        props.history.push('/')
+        // axios.post("https://anytime-fitness.herokuapp.com/api/auth/login", signInCredentials)
+        //     .then(res => {
+        //         console.log(res);
+        //         localStorage.setItem("authToken", res.data.payload);
+        //         history.push('/')
+        //     })
+        //     .catch(err => console.log(err));
+       
     }
 
+    useEffect( () => {
+        schema.isValid(signInCredentials).then(valid => setDisabled(!valid))
+    }, [signInCredentials])   
 
     return (
 
         <div className="signin-container">
 
+           <Form className='form-container'
+                        onSubmit={submit} >
             <FormGroup> {/* USERNAME */}
 
             {/* <Label>First Name</Label> */}
             <Input 
-                className="signin-email"
-                name="signin-email"
+                name="signInEmail"
                 type="text"
                 onChange={change}
-                value={signinFormState.singinemail}
+                value={signInCredentials.signInEmail}
                 // className="form-control-signup"
                 placeholder="Email"
                 maxLength="18"
             />
 
             <div className='error-msg' style={{ color: 'red' }}>
-
-            <div>{errors.signinemail}</div>
-
+            <div>{errors.signInEmail}</div>
             </div>
 
             </FormGroup>  {/* USERNAME */}
@@ -63,33 +78,28 @@ export default function Signin(props){
 
                             {/* <Label>First Name</Label> */}
                 <Input 
-                // disabled={disabled}
-                className="signin-password"
-                name="signin-password"
+                name="signInPassword"
                 type="text"
                 onChange={change}
-                value={signinFormState.signinpassword}
-                                // className="form-control-signup"
+                value={signInCredentials.signInPassword}
                 placeholder="Password"
                 maxLength="18"
                 />
 
                 <div className='error-msg' style={{ color: 'red' }}>
-
-                <div>{errors.signinpassword}</div>
-
+                <div>{errors.signInPasswords}</div>
                 </div>
 
             </FormGroup>
 
 
-            <FormGroup>
-
-                <Button className="submit" onSubmit={submit}>Submit</Button>
-
-            </FormGroup>
 
 
+                <Button disabled={disabled} className="submit" >Submit</Button>
+
+  
+
+            </Form>
 
         </div> /* CLOSE CONTAINER DIV */
 
