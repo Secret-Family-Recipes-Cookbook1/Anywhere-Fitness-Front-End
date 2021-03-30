@@ -64,7 +64,7 @@ export default function Signin(props){
                 value={signInCredentials.signInEmail}
                 // className="form-control-signup"
                 placeholder="Email"
-                maxLength="18"
+                maxLength="50"
             />
 
             <div className='error-msg' style={{ color: 'red' }}>
@@ -83,7 +83,7 @@ export default function Signin(props){
                 onChange={change}
                 value={signInCredentials.signInPassword}
                 placeholder="Password"
-                maxLength="18"
+                maxLength="50"
                 />
 
                 <div className='error-msg' style={{ color: 'red' }}>
