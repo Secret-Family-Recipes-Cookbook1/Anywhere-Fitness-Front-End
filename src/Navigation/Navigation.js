@@ -13,7 +13,7 @@ export default function navbar() {
 
     return (
         <div>
-            {/* <Router> */}
+            
                 <Navbar className="nav"> {/* Open Nav */}
 
                     <Link to="/">
@@ -24,11 +24,11 @@ export default function navbar() {
                         </NavItem>
                     </Link>
 
-                    {/* <Route to="/signup" component={Signup}> */}
+                   
 
                         
 
-                            {/* <Switch> */}
+                           
 
                             <Route to="/signup">
 
@@ -44,7 +44,7 @@ export default function navbar() {
 
                             </Route>
 
-                            {/* </Switch> */}
+                           
 
                             <Link to="/create">
 
@@ -55,7 +55,7 @@ export default function navbar() {
                             </Link>
                         
 
-                    {/* </Route> */}
+                    
 
 
                     <Link to="signin">
@@ -67,7 +67,7 @@ export default function navbar() {
                     </Link>
 
                 </Navbar>
-            {/* </Router> */}
+            
         </div>
      )
 }

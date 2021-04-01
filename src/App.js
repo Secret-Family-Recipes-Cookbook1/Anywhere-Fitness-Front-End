@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+
 import './App.css';
 import Nav from './Navigation/Navigation'
 import Signup from './signup/Signup'
@@ -7,7 +7,7 @@ import Class from './Instructor/class'
 import Client from './Client/Client'
 import { Route } from "react-router-dom";
 import { BrowserRouter as Router } from 'react-router-dom'
-// import { Switch, Route } from 'react-router-dom' 
+
 
 function App() {
   return (

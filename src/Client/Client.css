@@ -3,17 +3,10 @@
     flex-direction: row;
     flex-wrap: nowrap;
     background-color: bisque;
-    /* padding-bottom: 10vh; */
     margin-top: 5vh;
 }
 
-img.firstimg{
-    /* height: 50vh;
-    width: 15vw; */
-    /* margin-top: 10vh;
-    margin-left: 5vw; */
-    
-}
+
 
 p.fitnessp{
     font-size: 3rem;
@@ -24,7 +17,6 @@ p.fitnessp{
 .join{
     font-size: 3rem;
     padding: 0;
-    /* background-color: red; */
     height: 40px;
     margin-top: 50vh;
     color: #ac0707c2;
@@ -36,8 +28,6 @@ p.fitnessp{
     flex-direction: row;
     flex-wrap: nowrap;
     background-color: azure;
-    /* padding-bottom: 10vh; */
-    /* margin-top: 5vh; */
 }
 
 

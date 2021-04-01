@@ -64,7 +64,7 @@ export default function Signup(props){
                 <Form className="form-container" onSubmit={submit}>
                     <div className="signup-section">
                         <FormGroup>
-                            {/* <Label>First Name</Label> */}
+                            
                             <Input 
                                 className="fname"
                                 name="name"
@@ -83,7 +83,7 @@ export default function Signup(props){
 
                                             {/* LAST NAME */}
                         <FormGroup>
-                            {/* <Label>First Name</Label> */}
+                            
                             <Input 
                                 className="lname"
                                 name="username"
@@ -102,7 +102,7 @@ export default function Signup(props){
 
                                         {/* EMAIL */}
                         <FormGroup>
-                            {/* <Label>First Name</Label> */}
+                            
                             <Input 
                                 className="email-signup"
                                 name="email"
@@ -120,16 +120,16 @@ export default function Signup(props){
 
                                             {/* PASSWORD */}
                         <FormGroup>
-                            {/* <Label>First Name</Label> */}
+                           
                             <Input 
                                 className="password-signup"
                                 name="password"
                                 type="text"
                                 onChange={change}
                                 value={signupCredentials.password}
-                                // className="form-control-signup"
+                                
                                 placeholder="Password"
-                                // maxLength="18"
+                                
                             />
 
                             <div className='error-msg' style={{ color: 'red' }}>
