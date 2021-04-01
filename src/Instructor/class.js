@@ -1,13 +1,21 @@
 import userEvent from '@testing-library/user-event'
+import axios from 'axios'
 import React, { useState } from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 // import * as yup from 'yup'
 import './class.css'
 
 
+const initialForm = [] //Set the initial form to an empty array
+const initialDisabled = true //set the initial value for disabled to true so that the button can't be clicked until validated
 
 
 export default function Class() {
+
+
+    //States
+
+    const [formValues, setFormValues] = useState(initialForm)
 
     //Initialize the class state here and give it key values
 
@@ -35,6 +43,19 @@ export default function Class() {
         currentatt: '',
     })
 
+    const getClass = () => {
+        axios.get('https://fakeapi.com')
+            .then(res => setClassFormState(res.data))
+    }
+
+    const postNewClass = newClass => {
+        axios.post('https://reqres.in/api/users', newClass)
+            .then(({ data }) => {
+                setClassFormState([...classFormState, data])
+                setFormValues(initialForm)
+            })
+    }
+
     //Set disabled for the button here
 
     const [ disabled, setDisabled ] = useState(true)
@@ -49,8 +70,16 @@ export default function Class() {
     }
 
     //Button function for when you submit the class
-    const submit = event => {
-
+    const formSubmit = event => {
+        const newClass = {
+        title: formValues.title.trim(),
+        source: formValues.source.trim(),
+        length: formValues.length.trim(),
+        intensity: formValues.intensity.trim(),
+        type: formValues.type.trim(),
+        location: formValues.location.trim(),
+        maxsize: formValues.maxsize.trim(),
+        }
     }
 
 
@@ -59,7 +88,7 @@ export default function Class() {
         <div>
 
 
-            <div className="class-form" onSubmit={submit}>
+            <div className="class-form" onSubmit={formSubmit}>
 
                 <h5>Hello Instructor! Let's get a class setup</h5>
 
@@ -181,22 +210,20 @@ export default function Class() {
 
                         <div className="spacer"></div>
 
-                                            {/* Current Attendee amount will go here */}
-                        {/* <FormGroup>
 
-                            <Input 
-                                type='text'
-                                name='type'
-                                placeholder='Workout Type'
-                                onChange={change}
-                                value={classFormState.type}
-                                className="class-type"
-                            />
+                        <FormGroup>
 
-                            <div className='error-msg' style={{ color: 'red' }}>
-                                <div>{errors.type}</div>
-                            </div>
-                        </FormGroup> */}
+                            <Button>Create</Button>
+
+                        </FormGroup>
+
+                        <FormGroup>
+
+                            <Button>Edit</Button>
+
+                        </FormGroup>
+
+                         
 
                     </Form>
 
