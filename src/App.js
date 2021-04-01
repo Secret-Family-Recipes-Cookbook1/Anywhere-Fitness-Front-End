@@ -20,7 +20,8 @@ function App() {
 
         <Route path="/signup" component={Signup} />
         <Route path="/signin" component={Signin} />
-
+        <Route path="/create" component={Class} />
+ 
       </Router>
 
     </div>
