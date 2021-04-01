@@ -56,7 +56,7 @@ export default function Signin(props){
                         onSubmit={submit} >
             <FormGroup> {/* USERNAME */}
 
-            {/* <Label>First Name</Label> */}
+            
             <Input 
                 name="signInEmail"
                 type="text"
@@ -76,7 +76,7 @@ export default function Signin(props){
 
             <FormGroup> 
 
-                            {/* <Label>First Name</Label> */}
+                            
                 <Input 
                 name="signInPassword"
                 type="text"

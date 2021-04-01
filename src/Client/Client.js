@@ -1,9 +1,9 @@
-// import userEvent from '@testing-library/user-event'
+
 import React, { useState } from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { Link, Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from 'react-router-dom'
-// import * as yup from 'yup'
+
 import './Client.css'
 
 export default function Client(){

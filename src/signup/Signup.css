@@ -33,11 +33,11 @@ input{
 }
 
 .signup-container{
-    /* background-color: rgb(97, 54, 122); */
+    
     width: 40vw;
     margin-top: 40vh;
     border: 3px solid white;
-    /* border-right: none; */
+    
     margin: 20vh auto ;
     background-color: #d4b7b79d;
     box-shadow: 22px 12px 42px 10px rgb(90, 84, 84);
